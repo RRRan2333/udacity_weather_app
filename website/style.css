@@ -5,23 +5,29 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-template-rows: 100px 150px 420px 200px;
     /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    grid-template-columns: 400px;
+    /* height:100vh; */
+    background: #f7e0af;
+    color: #0c1a35;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
-.holder{
-
+.holder {
+    border: 1px solid red;
 }
 
-.entry{
+.entry {
     background: rgba(59, 74, 107, .4);
+}
+
+.feel {
+    display: flex;
+    flex-direction: column;
 }
 
 #entryHolder{
@@ -57,7 +63,7 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
+    background:#254b55;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -79,7 +85,7 @@ h1{
 }
 
 textarea{
-    background:#22b2da;
+    background:#254b55;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
