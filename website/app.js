@@ -92,7 +92,7 @@ const runApp = () => {
         };
         postData('/add', newEntry);
     })
-    .then(updateUI());
+    .then(() => updateUI());
 }
 
 document.getElementById('generate').addEventListener('click', runApp);
