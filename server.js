@@ -26,21 +26,33 @@ app.get('/all', (req, res) => {
     res.send(projectData);
 });
 
-//POST route
-app.post('/add', (req, res) => {
+//POST route - my method
+// app.post('/add', (req, res) => {
     
-    projectData = {
-        temperature: req.body.temp,
-        date: req.body.date,
-        userInput: req.body.userInput
-    };
-    // projectData.push(newEntry);
+//     projectData = {
+//         temperature: req.body.temp,
+//         date: req.body.date,
+//         userInput: req.body.userInput
+//     };
 
-    res.send(projectData);
+//     res.send(projectData);
+//     console.log(projectData);
+// })
+
+//POST route - mentor method
+app.post('/add', (req, res) => {
+
+    console.log(req.body)
+    projectData = {
+        temp: req.body.temperature,
+        date: req.body.date,
+        userInput: req.body.userInput 
+    };
     console.log(projectData);
-})
+    res.send(projectData);
+    })
 
 app.get('/test', (req,res)=>{
-    res.send("Hi, the server is working")
+    res.send("Hi, the server is working 21:24")
 })
 

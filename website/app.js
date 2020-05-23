@@ -10,27 +10,42 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
-//Async POST to local server
-const postData = async (url = '', data = {}) =>{
+//Async POST to local server - my method
+// const postData = async (url = '', data = {}) =>{
 
-    const res = await fetch(url, {
+//     const res = await fetch(url, {
+//         method: 'POST',
+//         crodentials: 'same-origin',
+//         headers: { 'Content-Type': 'applicaiton/json', },
+//         body: JSON.stringify(data),
+//     });
+
+//     try{
+//         const newData = await res.json();
+//         console.log(newData);
+//         console.log('postData() run till completion (probably)');
+//         return newData;
+//     }catch(error){
+//         console.log('error', error);
+//     }
+// };
+
+//Async POST to local server - mentor method
+const postData = async ( url = '', data = {})=>{
+
+    const response = await fetch(url, {
         method: 'POST',
-        crodentials: 'same-origin',
-        headers: {
-            'Content-Type': 'applicaiton/json',
-        },
-        body: JSON.stringify(data),
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(data), 
     });
 
-    try{
-        const newData = await res.json();
-        console.log(newData);
-        console.log('postData() run till completion (probably)');
-        return newData;
-    }catch(error){
-        console.log('error', error);
-    }
-};
+    try {
+        const newData = await response.json();
+        return newData; 
+    }catch(error) {
+        console.log("error", error);
+    }};
 
 //Async GET weather from Openweathermap API
 const getWeather = async (url = '') => {
@@ -53,9 +68,9 @@ const updateUI = async () => {
         const allData = await req.json();
         console.log(allData);
         //update UI
-        document.getElementById('date').innerHTML = allData[0].date;
-        document.getElementById('temp').innerHTML = allData[0].temp;
-        document.getElementById('content').innerHTML = allData[0].userInput;
+        document.getElementById('date').innerHTML = allData.date;
+        document.getElementById('temp').innerHTML = allData.temp;
+        document.getElementById('content').innerHTML = allData.userInput;
         
         console.log('updateUI completed');
     }catch(error){
